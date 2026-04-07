@@ -4,6 +4,8 @@ let satelliteLayer;
 let markers = [];
 let polyline;
 let activeLayout = null;
+let currentGalleryItems = [];
+let currentGalleryIndex = 0;
 
 const LAYOUT_CENTERS = {
     'DRD BALADHANDAYUTHABANI GARDEN': [10.95, 76.85],
@@ -183,7 +185,7 @@ function showInfoPanel(item) {
         imagesHtml = `
             <h4>Visual Layout & Photos</h4>
             <div class="gallery">
-                ${item.images.map(img => `<img src="${img}" alt="Layout Image" onclick="openModal('${img}', '${item.name}')">`).join('')}
+                ${item.images.map((img, idx) => `<img src="${img}" alt="Layout Image" onclick="openModal(${idx}, '${item.name}', ${JSON.stringify(item.images).replace(/"/g, '&quot;')})">`).join('')}
             </div>
         `;
     }
@@ -244,18 +246,62 @@ document.querySelector('.close-btn').onclick = () => {
 };
 
 // Modal Functions
-function openModal(src, name) {
-    const modal = document.getElementById('image-modal');
+function openModal(index, name, items) {
+    currentGalleryIndex = index;
+    currentGalleryItems = items;
+    
+    updateModalContent(name);
+    document.getElementById('image-modal').style.display = "block";
+}
+
+function updateModalContent(name) {
     const modalImg = document.getElementById('modal-img');
     const captionText = document.getElementById('caption');
-    modal.style.display = "block";
-    modalImg.src = src;
-    captionText.innerHTML = name;
+    
+    modalImg.src = currentGalleryItems[currentGalleryIndex];
+    captionText.innerHTML = `${name} (${currentGalleryIndex + 1} / ${currentGalleryItems.length})`;
 }
+
+function nextModalImage() {
+    if (currentGalleryItems.length === 0) return;
+    currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryItems.length;
+    updateModalContent(activeLayout ? activeLayout.name : "DRD Realtors");
+}
+
+function prevModalImage() {
+    if (currentGalleryItems.length === 0) return;
+    currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
+    updateModalContent(activeLayout ? activeLayout.name : "DRD Realtors");
+}
+
+document.querySelector('.modal-next').onclick = (e) => {
+    e.stopPropagation();
+    nextModalImage();
+};
+
+document.querySelector('.modal-prev').onclick = (e) => {
+    e.stopPropagation();
+    prevModalImage();
+};
+
+document.getElementById('image-modal').onclick = (e) => {
+    if (e.target.id === 'image-modal') {
+        document.getElementById('image-modal').style.display = "none";
+    }
+};
 
 document.querySelector('.close-modal').onclick = () => {
     document.getElementById('image-modal').style.display = "none";
 };
+
+// Keypress navigation
+document.addEventListener('keydown', (e) => {
+    if (document.getElementById('image-modal').style.display === "block") {
+        if (e.key === "ArrowRight") nextModalImage();
+        if (e.key === "ArrowLeft") prevModalImage();
+        if (e.key === "Escape") document.getElementById('image-modal').style.display = "none";
+    }
+});
 
 // Extra Styles for Marker
 const style = document.createElement('style');
