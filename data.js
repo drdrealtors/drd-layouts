@@ -32,8 +32,8 @@ const LAYOUT_DATA = [
     "price_range": "46L - 84L",
     "total_area": 44137,
     "coords": [
-      10.942,
-      76.808
+      10.95,
+      76.85
     ],
     "images": [
       "Layout_Images/DRD Baladhandayudhabani/Bala Front View.jpeg",
@@ -128,8 +128,8 @@ const LAYOUT_DATA = [
     "price_range": "34L - 63L",
     "total_area": 82299,
     "coords": [
-      10.95,
-      76.85
+      10.942,
+      76.808
     ],
     "images": [
       "Layout_Images/DRD Skanda Enclave/Skanda Main Ent SideView.jpeg",

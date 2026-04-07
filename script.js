@@ -6,8 +6,8 @@ let polyline;
 let activeLayout = null;
 
 const LAYOUT_CENTERS = {
-    'DRD BALADHANDAYUTHABANI GARDEN': [10.942, 76.808], // Hand-picked approx
-    'DRD SKANDA ENCLAVE': [10.95, 76.85] // Hand-picked approx
+    'DRD BALADHANDAYUTHABANI GARDEN': [10.95, 76.85],
+    'DRD SKANDA ENCLAVE': [10.942, 76.808]
 };
 
 async function initMap() {
