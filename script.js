@@ -173,6 +173,11 @@ function showInfoPanel(item) {
     panel.classList.remove('hidden');
 }
 
+// Mobile Toggle
+document.getElementById('btn-list-mobile').onclick = () => {
+    document.getElementById('sidebar').classList.toggle('mobile-open');
+};
+
 // Map Controls
 document.getElementById('btn-road').onclick = (e) => {
     map.removeLayer(satelliteLayer);
