@@ -121,6 +121,9 @@ function focusLayout(item) {
         return;
     }
 
+    // Close mobile menu if open
+    document.getElementById('sidebar').classList.remove('mobile-open');
+
     map.flyTo(item.coords, 16, {
         duration: 1.5
     });
