@@ -201,10 +201,11 @@ h1 {
 
 .contact-card h4 {
     color: var(--primary);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    opacity: 0.9;
 }
 
 .contact-info {
@@ -214,10 +215,10 @@ h1 {
 }
 
 .contact-link {
-    color: var(--text-main);
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 600;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 1.1rem;
+    font-weight: 700;
     transition: var(--transition);
     display: flex;
     align-items: center;
@@ -225,12 +226,13 @@ h1 {
 }
 
 .contact-link:hover {
-    color: var(--primary);
+    color: var(--primary) !important;
     transform: translateX(5px);
 }
 
 .wa-link {
     color: #25d366 !important;
+    font-weight: 800;
 }
 
 #wa-float {
