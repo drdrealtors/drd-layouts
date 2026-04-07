@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRD Realtors - Layout Visualizer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sidebar">
+        <div class="header">
+            <img src="Layout_Images/02 DRD Taglines/Logo.jpeg" alt="DRD Logo" class="logo">
+            <h1>DRD Realtors</h1>
+            <p>Premium Plot Layouts</p>
+        </div>
+        
+        <div id="layout-list">
+            <div class="loading">Loading layout data...</div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 DRD Realtors</p>
+        </div>
+    </div>
+
+    <div id="map-container">
+        <div id="map"></div>
+        <div class="map-controls">
+            <button id="btn-road" class="active">Road View</button>
+            <button id="btn-satellite">Aerial View</button>
+        </div>
+        <div id="info-panel" class="hidden">
+            <button class="close-btn">&times;</button>
+            <div class="info-content"></div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="caption"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
