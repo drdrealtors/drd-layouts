@@ -16,7 +16,15 @@ const LANDMARKS = [
     { name: 'Isha Yoga Center 🕉️', coords: [10.9427, 76.6826] },
     { name: 'Kovaipudur Road Junction', coords: [10.9161, 76.9248] }
 ];
-
+const SIRUVANI_ROAD_PATH = [
+    [10.985, 76.935], // Coimbatore end
+    [10.975, 76.918], // Perur
+    [10.965, 76.885],
+    [10.958, 76.865], // Velavan area
+    [10.945, 76.845], // Iruttupallam
+    [10.938, 76.812], // Alandurai
+    [10.942, 76.682]  // Isha
+];
 
 
 async function initMap() {
@@ -219,17 +227,43 @@ function plotLandmarks() {
 
 
 
-function drawConnections(data) {
-    const coords = data.filter(d => d.coords).map(d => d.coords);
-    if (coords.length < 2) return;
+function findNearestPointOnRoad(plotCoords) {
+    let minDistance = Infinity;
+    let nearestPoint = SIRUVANI_ROAD_PATH[0];
+    
+    // Simple point-to-point check for clarity, could be segment-based for more precision
+    SIRUVANI_ROAD_PATH.forEach(roadPoint => {
+        const dist = Math.sqrt(Math.pow(plotCoords[0] - roadPoint[0], 2) + Math.pow(plotCoords[1] - roadPoint[1], 2));
+        if (dist < minDistance) {
+            minDistance = dist;
+            nearestPoint = roadPoint;
+        }
+    });
+    return nearestPoint;
+}
 
-    // Draw a dashed polyline connecting them
-    polyline = L.polyline(coords, {
-        color: '#d4af37',
-        weight: 3,
-        dashArray: '10, 10',
-        opacity: 0.6
-    }).addTo(map);
+function drawConnections(data) {
+    // 1. Draw the Main Road (Subtle)
+    L.polyline(SIRUVANI_ROAD_PATH, {
+        color: '#8e8e8e',
+        weight: 10,
+        opacity: 0.1,
+        lineJoin: 'round'
+    }).addTo(map).bindTooltip("Siruvani Main Road 🛣️", { sticky: true, className: 'road-tooltip' });
+
+    // 2. Connect each plot to the road
+    data.forEach(item => {
+        if (!item.coords) return;
+        
+        const roadPoint = findNearestPointOnRoad(item.coords);
+        
+        L.polyline([item.coords, roadPoint], {
+            color: '#d4af37',
+            weight: 2,
+            dashArray: '5, 10',
+            opacity: 0.5
+        }).addTo(map);
+    });
 }
 
 function focusLayout(item) {

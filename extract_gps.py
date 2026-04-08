@@ -4,7 +4,7 @@ import re
 import json
 import os
 
-file_path = r'C:\Users\praka\Downloads\Plots_Data.xlsx'
+file_path = r'C:\Anti_gravity_project\DRD_WhatsApp_Bot\Plots_Data.xlsx'
 output_path = 'gps_results.json'
 
 def get_coords(google_maps_link):
