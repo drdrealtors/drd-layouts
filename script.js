@@ -17,13 +17,15 @@ const LANDMARKS = [
     { name: 'Kovaipudur Road Junction', coords: [10.9161, 76.9248] }
 ];
 const SIRUVANI_ROAD_PATH = [
-    [10.985, 76.935], // Coimbatore end
-    [10.975, 76.918], // Perur
-    [10.965, 76.885],
-    [10.958, 76.865], // Velavan area
-    [10.945, 76.845], // Iruttupallam
-    [10.938, 76.812], // Alandurai
-    [10.942, 76.682]  // Isha
+    [10.985, 76.940], // Coimbatore/Perur West
+    [10.9785, 76.9272], // Perur
+    [10.9781, 76.8837], // Theethipalayam
+    [10.9576, 76.8524], // Madhampatti
+    [10.9632, 76.8151], // Alandurai
+    [10.9669, 76.8050], // Iruttupallam
+    [10.9686, 76.7865], // Semmedu
+    [10.9719, 76.7388], // Poolegal Junction
+    [10.9427, 76.6826]  // Isha Yoga Center
 ];
 
 
@@ -243,11 +245,18 @@ function findNearestPointOnRoad(plotCoords) {
 }
 
 function drawConnections(data) {
-    // 1. Draw the Main Road (Subtle)
+    // 1. Draw the Main Road (Elegant Highlight)
     L.polyline(SIRUVANI_ROAD_PATH, {
-        color: '#8e8e8e',
+        color: '#fff',
+        weight: 12,
+        opacity: 0.6,
+        lineJoin: 'round'
+    }).addTo(map);
+    
+    L.polyline(SIRUVANI_ROAD_PATH, {
+        color: '#808080',
         weight: 10,
-        opacity: 0.1,
+        opacity: 0.3,
         lineJoin: 'round'
     }).addTo(map).bindTooltip("Siruvani Main Road 🛣️", { sticky: true, className: 'road-tooltip' });
 
@@ -259,9 +268,9 @@ function drawConnections(data) {
         
         L.polyline([item.coords, roadPoint], {
             color: '#d4af37',
-            weight: 2,
-            dashArray: '5, 10',
-            opacity: 0.5
+            weight: 3,
+            dashArray: '8, 12',
+            opacity: 0.7
         }).addTo(map);
     });
 }
@@ -472,13 +481,24 @@ style.innerHTML = `
         background: white !important;
     }
     .road-tooltip {
-        background: rgba(52, 152, 219, 0.9);
+        background: rgba(40, 40, 40, 0.9);
         color: #fff;
-        border: none;
+        border: 2px solid #d4af37;
         border-radius: 20px;
         padding: 4px 15px;
         font-weight: 700;
         letter-spacing: 0.5px;
+    }
+    
+    /* Animation for connection lines */
+    .leaflet-interactive {
+        stroke-dashoffset: 0;
+        animation: dash 20s linear infinite;
+    }
+    @keyframes dash {
+        to {
+            stroke-dashoffset: -100;
+        }
     }
     
     /* Google Maps Blue pulse for user location */
