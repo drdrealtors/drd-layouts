@@ -139,18 +139,6 @@ const LAYOUT_DATA = [
       "Layout_Images/DRD Skanda Enclave/Skanda View 1.jpeg",
       "Layout_Images/DRD Skanda Enclave/Skanda View 2.jpeg",
       "Layout_Images/DRD Skanda Enclave/Skanda View 3.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 1.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 10.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 11.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 12.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 2.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 3.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 4.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 5.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 6.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 7.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 8.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 9.jpeg",
       "Layout_Images/03 House Models/Actual Output.jpeg",
       "Layout_Images/03 House Models/Firstfloor Model.jpeg",
       "Layout_Images/03 House Models/Front View.jpeg",
@@ -185,5 +173,25 @@ const LAYOUT_DATA = [
       "Layout_Images/DRD Velavan/DRD Velavan Garden.pdf",
       "Layout_Images/01 All Layouts/DRD VELAVAN GARDEN.pdf"
     ]
+  },
+  {
+    "name": "DRD SENDHUR GARDEN",
+    "plots_count": 0,
+    "available_count": 0,
+    "price_range": "Call for Price",
+    "total_area": 0,
+    "coords": null,
+    "images": [],
+    "plans": ["Layout_Images/DRD Sendhur/senthur_Layout Plan Working-Model.pdf"]
+  },
+  {
+    "name": "DRD VAIRAVAN GARDEN",
+    "plots_count": 0,
+    "available_count": 0,
+    "price_range": "Call for Price",
+    "total_area": 0,
+    "coords": null,
+    "images": [],
+    "plans": ["Layout_Images/DRD Vairavan/DRD VAIRAVAN GARDEN LAYOUT.pdf"]
   }
 ];

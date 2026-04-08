@@ -68,12 +68,55 @@ async function initMap() {
         // Auto-center map to fit all points
         const validCoords = data.filter(d => d.coords).map(d => d.coords);
         if (validCoords.length > 0) {
-            map.fitBounds(L.latLngBounds([...validCoords, ...LANDMARKS.map(l => l.coords)]), { padding: [50, 50] });
+            map.fitBounds(L.latLngBounds([...validCoords, ...LANDMARKS.map(l => l.coords)]), { padding: [100, 100] });
         }
+
+        setupSidebarToggle();
+        setupSearch();
+        setupMapControls();
 
     } catch (e) {
         console.error("Error loading layout data", e);
     }
+}
+
+function setupSidebarToggle() {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('btn-toggle-sidebar');
+    
+    toggleBtn.onclick = () => {
+        sidebar.classList.toggle('collapsed');
+    };
+}
+
+function setupSearch() {
+    const input = document.getElementById('search-input');
+    const btn = document.getElementById('search-btn');
+
+    const doSearch = () => {
+        const query = input.value.toLowerCase();
+        const filtered = LAYOUT_DATA.filter(item => 
+            item.name.toLowerCase().includes(query) || 
+            (item.location && item.location.toLowerCase().includes(query))
+        );
+        loadLayoutList(filtered);
+    };
+
+    input.oninput = doSearch;
+    btn.onclick = doSearch;
+}
+
+function setupMapControls() {
+    document.getElementById('btn-zoom-in').onclick = () => map.zoomIn();
+    document.getElementById('btn-zoom-out').onclick = () => map.zoomOut();
+    document.getElementById('btn-locate').onclick = () => {
+        map.locate({setView: true, maxZoom: 16});
+    };
+
+    map.on('locationfound', (e) => {
+        L.circle(e.latlng, e.accuracy).addTo(map);
+        L.marker(e.latlng).addTo(map).bindPopup("You are here").openPopup();
+    });
 }
 
 function loadLayoutList(data) {
@@ -99,9 +142,14 @@ function loadLayoutList(data) {
 function plotMarkers(data) {
     const customIcon = L.divIcon({
         className: 'custom-marker',
-        html: '<div class="pin"></div>',
-        iconSize: [30, 30],
-        iconAnchor: [15, 30]
+        html: `
+            <svg width="27" height="43" viewBox="0 0 27 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5 0C6.04416 0 0 6.04416 0 13.5C0 23.625 13.5 43 13.5 43C13.5 43 27 23.625 27 13.5C27 6.04416 20.9558 0 13.5 0Z" fill="#EA4335"/>
+                <circle cx="13.5" cy="13.5" r="5.5" fill="white"/>
+            </svg>
+        `,
+        iconSize: [27, 43],
+        iconAnchor: [13.5, 43]
     });
 
     data.forEach(item => {
@@ -110,8 +158,8 @@ function plotMarkers(data) {
         const marker = L.marker(item.coords, { icon: customIcon }).addTo(map);
         marker.bindTooltip(item.name, { 
             permanent: true, 
-            direction: 'top', 
-            offset: [0, -25],
+            direction: 'bottom', 
+            offset: [0, 5],
             className: 'marker-tooltip layout-tooltip' 
         });
         
@@ -183,9 +231,11 @@ function showInfoPanel(item) {
     let imagesHtml = '';
     if (item.images && item.images.length > 0) {
         imagesHtml = `
-            <h4>Visual Layout & Photos</h4>
-            <div class="gallery">
-                ${item.images.map((img, idx) => `<img src="${img}" alt="Layout Image" onclick="openModal(${idx}, '${item.name}', ${JSON.stringify(item.images).replace(/"/g, '&quot;')})">`).join('')}
+            <div class="inner-padding" style="padding: 20px;">
+                <h4 style="margin-bottom: 12px; font-size: 1rem; color: #555;">Visual Layout & Photos</h4>
+                <div class="gallery">
+                    ${item.images.map((img, idx) => `<img src="${img}" alt="Layout Image" onclick="openModal(${idx}, '${item.name}', ${JSON.stringify(item.images).replace(/"/g, '&quot;')})">`).join('')}
+                </div>
             </div>
         `;
     }
@@ -193,32 +243,50 @@ function showInfoPanel(item) {
     let plansHtml = '';
     if (item.plans && item.plans.length > 0) {
         plansHtml = `
-            <h4>Layout Plans (PDF)</h4>
-            <div class="plans-list" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
-                ${item.plans.map(plan => {
-                    const filename = plan.split('/').pop();
-                    return `<a href="${plan}" target="_blank" class="plan-btn" style="background: #333; color: var(--primary); padding: 8px 15px; border-radius: 8px; border: 1px solid var(--primary); text-decoration: none; font-size: 0.85rem; font-weight: 600;">📄 ${filename}</a>`;
-                }).join('')}
+            <div class="inner-padding" style="padding: 0 20px 20px 20px;">
+                <h4 style="margin-bottom: 12px; font-size: 1rem; color: #555;">Layout Plans (PDF)</h4>
+                <div class="plans-list" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    ${item.plans.map(plan => {
+                        const filename = plan.split('/').pop();
+                        return `<a href="${plan}" target="_blank" class="plan-btn" style="background: #f8f9fa; color: #4285F4; padding: 10px 15px; border-radius: 8px; border: 1px solid #dee2e6; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;">📄 ${filename}</a>`;
+                    }).join('')}
+                </div>
             </div>
         `;
     }
 
+    const headerImg = item.images && item.images.length > 0 ? item.images[0] : 'Layout_Images/02 DRD Taglines/Logo.jpeg';
+
     content.innerHTML = `
-        <div class="info-header">
+        <img src="${headerImg}" class="info-header-img" alt="${item.name}">
+        <div class="info-header" style="padding: 20px; border-bottom: 1px solid #eee; margin-bottom: 0;">
             <div class="info-title">
-                <h2>${item.name}</h2>
-                <p>${item.plots_count} Plots Total | ${item.available_count} Available Now</p>
+                <h2 style="color: #202124; font-size: 1.5rem; margin-bottom: 4px;">${item.name}</h2>
+                <div style="display: flex; align-items: center; gap: 10px; color: #70757a; font-size: 0.9rem;">
+                    <span style="color: #188038; font-weight: 600;">Available Now</span>
+                    <span>•</span>
+                    <span>${item.plots_count} Plots Total</span>
+                </div>
             </div>
-            <div class="price-tag">${item.price_range}</div>
+            <div class="price-tag" style="background: #e8f0fe; color: #1967d2; border: none; font-size: 0.9rem;">${item.price_range}</div>
         </div>
         <div class="info-body">
-            <p>Experience the premium living at ${item.name}. Total development area of ${item.total_area.toLocaleString()} sq.ft. feature ${item.plots_count} individual residential plots.</p>
+            <div style="padding: 20px; color: #3c4043; line-height: 1.6; font-size: 0.95rem;">
+                <p>Experience the premium living at ${item.name}. Total development area of ${item.total_area.toLocaleString()} sq.ft. feature ${item.plots_count} individual residential plots.</p>
+            </div>
             ${plansHtml}
             ${imagesHtml}
+            <div style="padding: 20px; border-top: 1px solid #eee; display: flex; gap: 10px;">
+                <a href="https://wa.me/919655766666?text=I'm interested in ${item.name}" target="_blank" style="flex: 1; background: #188038; color: #fff; text-align: center; padding: 12px; border-radius: 25px; text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 20px; filter: brightness(0) invert(1);"> Enquire Now
+                </a>
+                <button onclick="window.print()" style="padding: 12px; border-radius: 50%; border: 1px solid #ddd; background: #fff; cursor: pointer;">🖨️</button>
+            </div>
         </div>
     `;
 
     panel.classList.remove('hidden');
+    // Ensure search box and controls shift if sidebar is open (handled by CSS)
 }
 
 // Mobile Toggle
