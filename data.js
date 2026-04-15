@@ -69,9 +69,7 @@ const LAYOUT_DATA = [
       "Layout_Images/03 House Models/Top View.jpeg"
     ],
     "plans": [
-      "Layout_Images/DRD Kandha/DRD Kanda Enclave.pdf",
-      "Layout_Images/01 All Layouts/DRD KANDA ENCLAVE.pdf",
-      "Layout_Images/01 All Layouts/DRD SKANDA ENCLAVE LAYOUT.pdf"
+      "Layout_Images/DRD Kandha/DRD Kanda Enclave.pdf"
     ]
   },
   {
@@ -93,8 +91,7 @@ const LAYOUT_DATA = [
       "Layout_Images/03 House Models/Top View.jpeg"
     ],
     "plans": [
-      "Layout_Images/DRD Kumaran/DRD kumaran Layout Plan.pdf",
-      "Layout_Images/01 All Layouts/DRD KUMARAN GARDEN LAYOUT PLAN.pdf"
+      "Layout_Images/DRD Kumaran/DRD kumaran Layout Plan.pdf"
     ]
   },
   {
@@ -116,8 +113,7 @@ const LAYOUT_DATA = [
       "Layout_Images/03 House Models/Top View.jpeg"
     ],
     "plans": [
-      "Layout_Images/DRD Shanmuga/300823_ DRD SHANMUGA GARDEN Combined Layout Plan-1.pdf",
-      "Layout_Images/01 All Layouts/DRD SHANMUGA GARDEN LAYOUT PLAN.pdf"
+      "Layout_Images/DRD Shanmuga/300823_ DRD SHANMUGA GARDEN Combined Layout Plan-1.pdf"
     ]
   },
   {
@@ -146,8 +142,7 @@ const LAYOUT_DATA = [
       "Layout_Images/03 House Models/Top View.jpeg"
     ],
     "plans": [
-      "Layout_Images/DRD Skanda Enclave/DRD Skanda Layout.pdf",
-      "Layout_Images/01 All Layouts/DRD SKANDA ENCLAVE LAYOUT.pdf"
+      "Layout_Images/DRD Skanda Enclave/DRD Skanda Layout.pdf"
     ]
   },
   {
@@ -169,8 +164,7 @@ const LAYOUT_DATA = [
       "Layout_Images/03 House Models/Top View.jpeg"
     ],
     "plans": [
-      "Layout_Images/DRD Velavan/DRD Velavan Garden.pdf",
-      "Layout_Images/01 All Layouts/DRD VELAVAN GARDEN.pdf"
+      "Layout_Images/DRD Velavan/DRD Velavan Garden.pdf"
     ]
   },
   {
