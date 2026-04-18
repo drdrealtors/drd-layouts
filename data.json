@@ -3,23 +3,19 @@
     "name": "DRD ANISAM GARDENS",
     "plots_count": 59,
     "available_count": 59,
-    "price_range": "80L - 230L",
-    "total_area": 345910,
+    "price_range": "80.5L - 230.1L",
+    "total_area": 345910.0800000001,
     "coords": [
       10.9888056,
       76.8091389
     ],
-    "images": [
-      "Layout_Images/DRD Anisam/Anisam Complete View.jpeg",
-      "Layout_Images/DRD Anisam/Anisam Entrance.jpeg",
-      "Layout_Images/DRD Anisam/Anisam Front View.jpeg"
-    ]
+    "images": []
   },
   {
     "name": "DRD BALADHANDAYUTHABANI GARDEN",
     "plots_count": 24,
     "available_count": 24,
-    "price_range": "46L - 84L",
+    "price_range": "46.8L - 84.8L",
     "total_area": 44137,
     "coords": [
       10.9668608,
@@ -28,14 +24,26 @@
     "images": []
   },
   {
+    "name": "DRD VELAVAN GARDEN",
+    "plots_count": 18,
+    "available_count": 18,
+    "price_range": "25.7L - 64.3L",
+    "total_area": 36007,
+    "coords": [
+      10.9544847,
+      76.8601452
+    ],
+    "images": []
+  },
+  {
     "name": "DRD KANDA ENCLAVE",
     "plots_count": 7,
     "available_count": 7,
-    "price_range": "24L - 31L",
+    "price_range": "24.6L - 31.9L",
     "total_area": 10264,
     "coords": [
-      10.9575,
-      76.7797
+      11.0168,
+      76.9558
     ],
     "images": []
   },
@@ -43,7 +51,7 @@
     "name": "DRD KUMARAN GARDEN",
     "plots_count": 5,
     "available_count": 5,
-    "price_range": "34L - 40L",
+    "price_range": "34.3L - 40.3L",
     "total_area": 8020,
     "coords": [
       10.9552917,
@@ -55,7 +63,7 @@
     "name": "DRD SHANMUGA GARDEN",
     "plots_count": 9,
     "available_count": 9,
-    "price_range": "42L - 76L",
+    "price_range": "42.7L - 76.5L",
     "total_area": 16789,
     "coords": [
       10.9620978,
@@ -67,31 +75,11 @@
     "name": "DRD SKANDA ENCLAVE",
     "plots_count": 51,
     "available_count": 51,
-    "price_range": "34L - 63L",
+    "price_range": "34.4L - 63.4L",
     "total_area": 82299,
     "coords": [
       10.9632537,
       76.8194371
-    ],
-    "images": [
-      "Layout_Images/DRD Skanda Enclave/Skanda Main Ent SideView.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Skanda Main Entrance.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Skanda Prelaunch Pamplet 1.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Skanda Prelaunch Pamplet 2.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Skanda View 1.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Skanda View 2.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Skanda View 3.jpeg"
-    ]
-  },
-  {
-    "name": "DRD VELAVAN GARDEN",
-    "plots_count": 18,
-    "available_count": 18,
-    "price_range": "25L - 64L",
-    "total_area": 36007,
-    "coords": [
-      10.9544847,
-      76.8601452
     ],
     "images": []
   }
