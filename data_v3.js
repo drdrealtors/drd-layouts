@@ -142,9 +142,7 @@ const LAYOUT_DATA = [
       "Layout_Images/DRD Skanda Enclave/Snap 6.jpeg",
       "Layout_Images/DRD Skanda Enclave/Snap 7.jpeg",
       "Layout_Images/DRD Skanda Enclave/Snap 8.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 9.jpeg",
-      "Layout_Images/DRD Skanda Enclave House/Skanda House 1.jpeg",
-      "Layout_Images/DRD Skanda Enclave House/Skanda House 2.jpeg"
+      "Layout_Images/DRD Skanda Enclave/Snap 9.jpeg"
     ],
     "plans": [
       "Layout_Images/DRD Skanda Enclave/DRD Skanda Layout.pdf"
