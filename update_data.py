@@ -132,13 +132,20 @@ def process_data():
             'coords': None
         })
         
+        coords = data['coords']
+        if not coords:
+            if folder == 'DRD Garden':
+                coords = [10.9671909, 76.8563632]
+            elif folder == 'VIP Garden':
+                coords = [10.9632991, 76.8916218]
+        
         all_layouts.append({
             'name': folder,
             'plots_count': data['plots_count'],
             'available_count': data['available_count'],
             'price_range': data['price_range'],
             'total_area': data['total_area'],
-            'coords': data['coords'],
+            'coords': coords,
             'images': images,
             'plans': plans
         })

@@ -34,7 +34,6 @@ const LAYOUT_DATA = [
       "Layout_Images/DRD Baladhandayudhabani/Bala 5.jpeg",
       "Layout_Images/DRD Baladhandayudhabani/Bala 6.jpeg",
       "Layout_Images/DRD Baladhandayudhabani/Bala Front View.jpeg",
-      "Layout_Images/DRD Baladhandayudhabani/Bala FrontView 1.jpeg",
       "Layout_Images/DRD Baladhandayudhabani/Bala In to Out View.jpeg",
       "Layout_Images/DRD Baladhandayudhabani/Baladhadayuthapani 1.jpeg"
     ],
@@ -130,19 +129,7 @@ const LAYOUT_DATA = [
       "Layout_Images/DRD Skanda Enclave/Skanda Prelaunch Pamplet 2.jpeg",
       "Layout_Images/DRD Skanda Enclave/Skanda View 1.jpeg",
       "Layout_Images/DRD Skanda Enclave/Skanda View 2.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Skanda View 3.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 1.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 10.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 11.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 12.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 2.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 3.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 4.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 5.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 6.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 7.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 8.jpeg",
-      "Layout_Images/DRD Skanda Enclave/Snap 9.jpeg"
+      "Layout_Images/DRD Skanda Enclave/Skanda View 3.jpeg"
     ],
     "plans": [
       "Layout_Images/DRD Skanda Enclave/DRD Skanda Layout.pdf"
@@ -154,7 +141,10 @@ const LAYOUT_DATA = [
     "available_count": 0,
     "price_range": "Contact for Price",
     "total_area": 0,
-    "coords": null,
+    "coords": [
+      10.9671909,
+      76.8563632
+    ],
     "images": [
       "Layout_Images/DRD Garden/DRD 1.jpeg",
       "Layout_Images/DRD Garden/DRD 2.jpeg",
@@ -203,7 +193,10 @@ const LAYOUT_DATA = [
     "available_count": 0,
     "price_range": "Contact for Price",
     "total_area": 0,
-    "coords": null,
+    "coords": [
+      10.9632991,
+      76.8916218
+    ],
     "images": [
       "Layout_Images/VIP Garden/VIP 1.jpeg",
       "Layout_Images/VIP Garden/VIP 2.jpeg",
