@@ -67,6 +67,7 @@ async function initMap() {
 
         setupSidebarToggle();
         setupSearch();
+        setupLayoutDropdown(data);
         setupMapControls();
 
     } catch (e) {
@@ -108,6 +109,28 @@ function setupSearch() {
 
     input.oninput = doSearch;
     btn.onclick = doSearch;
+}
+
+function setupLayoutDropdown(data) {
+    const dropdown = document.getElementById('layout-dropdown');
+    
+    // Sort projects alphabetically
+    const sortedData = [...data].sort((a, b) => a.name.localeCompare(b.name));
+    
+    sortedData.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.name;
+        option.textContent = item.name;
+        dropdown.appendChild(option);
+    });
+
+    dropdown.onchange = (e) => {
+        const selectedName = e.target.value;
+        if (!selectedName) return;
+        
+        const item = data.find(d => d.name === selectedName);
+        if (item) focusLayout(item);
+    };
 }
 
 function setupMapControls() {
@@ -236,19 +259,33 @@ function findNearestPointOnRoad(plotCoords) {
 
 function drawConnections(data) {
     // 1. Highlight the existing Siruvani Main Road on the map perfectly following its curves
+    // High-contrast Black & White Road Style
     L.polyline(SIRUVANI_ROAD_PATH, {
         color: '#fff',
         weight: 12,
-        opacity: 0.6,
+        opacity: 0.9,
         lineJoin: 'round'
     }).addTo(map);
-    
+
     L.polyline(SIRUVANI_ROAD_PATH, {
-        color: '#808080',
-        weight: 10,
-        opacity: 0.3,
+        color: '#000',
+        weight: 8,
+        opacity: 0.9,
         lineJoin: 'round'
-    }).addTo(map).bindTooltip("Siruvani Main Road 🛣️", { sticky: true, className: 'road-tooltip' });
+    }).addTo(map).bindTooltip("Siruvani Main Road 🛣️", { 
+        sticky: true, 
+        className: 'road-tooltip',
+        permanent: false 
+    });
+
+    // Center divider (Dashed White Line)
+    L.polyline(SIRUVANI_ROAD_PATH, {
+        color: '#fff',
+        weight: 1,
+        opacity: 0.8,
+        dashArray: '10, 10',
+        lineJoin: 'round'
+    }).addTo(map);
 
     // 2. Connect each plot to the road
     data.forEach(item => {
@@ -312,6 +349,25 @@ function showInfoPanel(item) {
         `;
     }
 
+    let videosHtml = '';
+    if (item.videos && item.videos.length > 0) {
+        videosHtml = `
+            <div class="inner-padding" style="padding: 0 20px 20px 20px;">
+                <h4 style="margin-bottom: 12px; font-size: 1rem; color: #555;">Walkthrough Videos</h4>
+                <div class="videos-list" style="display: flex; gap: 15px; flex-direction: column;">
+                    ${item.videos.map(video => {
+                        return `
+                            <video controls style="width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <source src="${video}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+    }
+
     const headerImg = item.images && item.images.length > 0 ? item.images[0] : 'Layout_Images/02 DRD Taglines/Logo.jpeg';
 
     content.innerHTML = `
@@ -340,6 +396,7 @@ function showInfoPanel(item) {
                 </button>
             </div>
             ${plansHtml}
+            ${videosHtml}
             ${imagesHtml}
             <div style="padding: 20px; border-top: 1px solid #eee; display: flex; gap: 10px;">
                 <a href="https://wa.me/919655766666?text=I'm interested in ${item.name}" target="_blank" style="flex: 1; background: #188038; color: #fff; text-align: center; padding: 12px; border-radius: 25px; text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;">
@@ -470,13 +527,18 @@ style.innerHTML = `
         background: white !important;
     }
     .road-tooltip {
-        background: rgba(40, 40, 40, 0.9);
-        color: #fff;
-        border: 2px solid #d4af37;
-        border-radius: 20px;
-        padding: 4px 15px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+        background: #000 !important;
+        color: #fff !important;
+        border: 2px solid #fff !important;
+        border-radius: 20px !important;
+        padding: 6px 18px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    .siruvani-glow {
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
     }
     
     /* Animation for connection lines */

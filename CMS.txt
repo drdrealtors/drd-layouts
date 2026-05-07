@@ -1,0 +1,27 @@
+# Visualizer Content Management System (CMS)
+
+I have successfully transformed the DRD Bot Command Center into a unified dashboard that not only manages your WhatsApp bot but also controls your Layout Visualizer!
+
+## What was built?
+
+### 1. Website Management Panel UI
+I replaced the old "Under Construction" placeholder in the `dashboard.html` with a fully functional layout management interface.
+- **Manual Entry Form**: Allows you to enter a new Layout Name, Total Plots, Price Range, and Layout Area.
+- **Photo Uploads**: You can select multiple photos at once. The system will automatically create a folder using the Layout Name inside the `Layout_Images` directory and securely save all uploaded photos into it.
+
+### 2. Node.js Backend Integration (`server.js`)
+- Integrated the `xlsx` module to dynamically open your existing `Plots_Data.xlsx` file.
+- When you add a new layout manually, the backend appends the required number of rows directly into the Excel database!
+- **Data Compilation**: Pressing "Generate Visual Maps" directly executes the Python `update_data.py` script. The console logs feed directly to your dashboard so you can see exactly when it finishes parsing.
+
+### 3. Cloud & Git Settings
+- Added a configuration panel where you can define your GitHub Remote URL and target Branch (e.g., `main`).
+- Pressing "Upload to Cloud / Git" triggers an automated script that securely initializes the repository (if not already done), stages all your changes (including the newly added photos and generated data), and pushes them up to the cloud!
+
+> [!TIP]
+> **Workflow for Future Updates:**
+> 1. Open the DRD Bot Dashboard.
+> 2. Go to the "Website Panel".
+> 3. Fill in the New Layout form and attach the photos. Click "Add to Database".
+> 4. Click the green "1. Generate Visual Maps" button to compile everything.
+> 5. Click the blue "2. Upload to Cloud / Git" button to push the live updates to your website!

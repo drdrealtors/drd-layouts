@@ -14,7 +14,12 @@ const LAYOUT_DATA = [
       "Layout_Images/DRD Anisam/Anisam Entrance.jpeg",
       "Layout_Images/DRD Anisam/Anisam Front View.jpeg"
     ],
-    "plans": []
+    "plans": [
+      "Layout_Images/DRD Anisam/DRD ANISAM DEVARAYAPURAM PLAN.pdf"
+    ],
+    "videos": [
+      "Layout_Images/DRD Anisam/Anisam Walkthrough.mp4"
+    ]
   },
   {
     "name": "DRD BALADHANDAYUTHABANI GARDEN",
@@ -39,7 +44,8 @@ const LAYOUT_DATA = [
     ],
     "plans": [
       "Layout_Images/DRD Baladhandayudhabani/DRD BALADHANDAYUTHAPANI GARDEN.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "DRD VELAVAN GARDEN",
@@ -54,7 +60,8 @@ const LAYOUT_DATA = [
     "images": [],
     "plans": [
       "Layout_Images/DRD Velavan/DRD Velavan Garden.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "DRD KANDA ENCLAVE",
@@ -66,7 +73,8 @@ const LAYOUT_DATA = [
     "images": [],
     "plans": [
       "Layout_Images/DRD Kandha/DRD Kanda Enclave.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "DRD KUMARAN GARDEN",
@@ -88,7 +96,8 @@ const LAYOUT_DATA = [
     ],
     "plans": [
       "Layout_Images/DRD Kumaran/DRD kumaran Layout Plan.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "DRD SHANMUGA GARDEN",
@@ -110,7 +119,8 @@ const LAYOUT_DATA = [
     ],
     "plans": [
       "Layout_Images/DRD Shanmuga/300823_ DRD SHANMUGA GARDEN Combined Layout Plan-1.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "DRD SKANDA ENCLAVE",
@@ -133,7 +143,8 @@ const LAYOUT_DATA = [
     ],
     "plans": [
       "Layout_Images/DRD Skanda Enclave/DRD Skanda Layout.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "DRD Garden",
@@ -153,7 +164,12 @@ const LAYOUT_DATA = [
       "Layout_Images/DRD Garden/DRD 5.jpeg",
       "Layout_Images/DRD Garden/DRD Garden Front View.jpeg"
     ],
-    "plans": []
+    "plans": [
+      "Layout_Images/DRD Garden/DRD GARDEN.pdf"
+    ],
+    "videos": [
+      "Layout_Images/DRD Garden/DRD Garden Walkthrough.mp4"
+    ]
   },
   {
     "name": "DRD Sendhur",
@@ -172,7 +188,8 @@ const LAYOUT_DATA = [
     ],
     "plans": [
       "Layout_Images/DRD Sendhur/senthur_Layout Plan Working-Model.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "DRD Vairavan",
@@ -185,7 +202,8 @@ const LAYOUT_DATA = [
     "plans": [
       "Layout_Images/DRD Vairavan/DRD Vairavan Garden Brochure..pdf",
       "Layout_Images/DRD Vairavan/DRD VAIRAVAN GARDEN LAYOUT.pdf"
-    ]
+    ],
+    "videos": []
   },
   {
     "name": "VIP Garden",
@@ -205,6 +223,7 @@ const LAYOUT_DATA = [
       "Layout_Images/VIP Garden/VIP 5.jpeg",
       "Layout_Images/VIP Garden/VIP 6.jpeg"
     ],
-    "plans": []
+    "plans": [],
+    "videos": []
   }
 ];

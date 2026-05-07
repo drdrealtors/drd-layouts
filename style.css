@@ -203,10 +203,24 @@ h1 {
     flex: 1;
     border: none;
     padding: 12px 15px;
-    border-radius: 8px 0 0 8px;
     font-size: 0.95rem;
     outline: none;
     font-family: var(--font-outfit);
+    border-left: 1px solid #eee;
+}
+
+#layout-dropdown {
+    width: 160px;
+    border: none;
+    padding: 0 10px;
+    font-family: var(--font-outfit);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4285F4;
+    background: #f8f9fa;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    outline: none;
 }
 
 #search-btn {

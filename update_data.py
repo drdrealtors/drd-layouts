@@ -90,9 +90,7 @@ def process_data():
             folder_path = os.path.join(IMAGE_ROOT, folder_name)
             images = [os.path.join(folder_path, f).replace('\\', '/') for f in os.listdir(folder_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
             plans = [os.path.join(folder_path, f).replace('\\', '/') for f in os.listdir(folder_path) if f.lower().endswith('.pdf')]
-            
-            # Special case: Merge DRD Skanda Enclave House into DRD Skanda Enclave (Only if it exists)
-            # (Note: I deleted this folder in previous turn based on user request to remove unwanted image)
+            videos = [os.path.join(folder_path, f).replace('\\', '/') for f in os.listdir(folder_path) if f.lower().endswith(('.mp4', '.mov', '.webm'))]
             
             data = layout_data.get(excel_name, {
                 'plots_count': 0,
@@ -110,7 +108,8 @@ def process_data():
                 'total_area': data['total_area'],
                 'coords': data['coords'],
                 'images': images,
-                'plans': plans
+                'plans': plans,
+                'videos': videos
             })
             processed_folders.add(folder_name)
 
@@ -122,6 +121,7 @@ def process_data():
         folder_path = os.path.join(IMAGE_ROOT, folder)
         images = [os.path.join(folder_path, f).replace('\\', '/') for f in os.listdir(folder_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
         plans = [os.path.join(folder_path, f).replace('\\', '/') for f in os.listdir(folder_path) if f.lower().endswith('.pdf')]
+        videos = [os.path.join(folder_path, f).replace('\\', '/') for f in os.listdir(folder_path) if f.lower().endswith(('.mp4', '.mov', '.webm'))]
         
         # Try to find matching Excel data by name if not in mapping
         data = layout_data.get(folder.upper(), {
@@ -147,7 +147,8 @@ def process_data():
             'total_area': data['total_area'],
             'coords': coords,
             'images': images,
-            'plans': plans
+            'plans': plans,
+            'videos': videos
         })
 
     # Write data_v3.js
