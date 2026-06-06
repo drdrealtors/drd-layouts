@@ -6,10 +6,10 @@
     <title>DRD Realtors - Layout Visualizer</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="stylesheet" href="style.css?v=1.3">
 </head>
 <body>
-    <div id="sidebar" class="collapsed">
+    <div id="sidebar">
         <div class="sidebar-toggle">
             <button id="btn-toggle-sidebar" title="Open Sidebar">❯</button>
         </div>
@@ -19,7 +19,7 @@
                 <h1>DRD Realtors</h1>
                 <p>Premium Plot Layouts</p>
             </div>
-            
+
             <div id="layout-list">
                 <div class="loading">Loading layout data...</div>
             </div>
@@ -33,6 +33,9 @@
             </div>
 
             <div class="footer">
+                <div class="view-counter">
+                    👁 <span id="view-count">150</span> TOTAL VIEWS
+                </div>
                 <p>&copy; 2026 DRD Realtors</p>
             </div>
         </div>
@@ -51,19 +54,34 @@
         <div class="map-controls">
             <button id="btn-road" class="active">Road View</button>
             <button id="btn-satellite">Aerial View</button>
+            <button id="btn-schools">🏫 Schools Nearby</button>
+            <button id="btn-legend">🗺️ Road Legend</button>
         </div>
         <div class="map-action-buttons">
             <button id="btn-locate" title="Show My Location">📍</button>
             <button id="btn-zoom-in" title="Zoom In">+</button>
             <button id="btn-zoom-out" title="Zoom Out">−</button>
         </div>
-        <a href="https://wa.me/919655766666" target="_blank" id="wa-float">
+        <a href="https://wa.me/919655766666?text=Interested%20in%20DRD%20Projects%20(Ref:%20DRD_WEB_VISUALIZER)" target="_blank" id="qr-float">
+            <img src="Layout_Images/QR/QR_prakash.png" alt="Scan to Connect">
+            <span>Connect on WhatsApp</span>
+        </a>
+        <a href="https://wa.me/919655766666?text=I%20want%20to%20enquire%20about%20plots%20(Ref:%20DRD_WEB_VISUALIZER)" target="_blank" id="wa-float">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             <span>Enquire Now</span>
         </a>
-        <a href="https://wa.me/919655766666" target="_blank" class="wa-right-float">
+        <a href="https://wa.me/919655766666?text=WhatsApp%20Enquiry%20(Ref:%20DRD_WEB_VISUALIZER)" target="_blank" class="wa-right-float">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         </a>
+        <div id="road-legend">
+            <div class="legend-item"><div class="legend-line" style="background:#000;"></div> Siruvani Main Road</div>
+            <div class="legend-item"><div class="legend-line" style="background:#1b5e20;"></div> Outer Ring Road</div>
+            <div class="legend-item"><div class="legend-line" style="background:#0d47a1;"></div> Vadavalli – Madhampatty</div>
+            <div class="legend-item"><div class="legend-line" style="background:#e65100;"></div> Gandhipuram Road</div>
+            <div class="legend-item"><div class="legend-line" style="background:#ce93d8;"></div> Airport Road ✈️</div>
+            <div class="legend-item"><div class="legend-line" style="background:#d4af37;"></div> Plot Access</div>
+            <div class="legend-item" style="margin-top:6px;padding-top:6px;border-top:1px solid #eee;">🏫 Schools &nbsp;✈️ Airport &nbsp;🚂 Railway</div>
+        </div>
         <div id="info-panel" class="hidden">
             <span class="panel-drag-handle"></span>
             <button class="close-btn">&times;</button>
@@ -81,7 +99,23 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="data_v3.js"></script>
-    <script src="script_v3.js"></script>
+    <script src="data_v3.js?v=3"></script>
+    <script src="script_v3.js?v=3"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectName = urlParams.get('project');
+            if (projectName) {
+                const check = setInterval(() => {
+                    if (typeof LAYOUT_DATA !== 'undefined' && LAYOUT_DATA.length > 0) {
+                        const item = LAYOUT_DATA.find(d => d.name === projectName);
+                        if (item) focusLayout(item);
+                        clearInterval(check);
+                    }
+                }, 100);
+                setTimeout(() => clearInterval(check), 5000);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ const LAYOUT_DATA = [
     "plots_count": 59,
     "available_count": 59,
     "price_range": "80.5L - 2.3Cr",
+    "size_range": "2.99 - 10.00",
     "total_area": 345910.0800000001,
     "coords": [
       10.9888056,
@@ -26,6 +27,7 @@ const LAYOUT_DATA = [
     "plots_count": 24,
     "available_count": 24,
     "price_range": "46.8L - 84.8L",
+    "size_range": "2.50 - 5.50",
     "total_area": 44137.0,
     "coords": [
       10.9668608,
@@ -52,6 +54,7 @@ const LAYOUT_DATA = [
     "plots_count": 18,
     "available_count": 18,
     "price_range": "25.7L - 64.3L",
+    "size_range": "2.00 - 4.50",
     "total_area": 36007.0,
     "coords": [
       10.9544847,
@@ -68,8 +71,12 @@ const LAYOUT_DATA = [
     "plots_count": 7,
     "available_count": 7,
     "price_range": "24.6L - 31.9L",
+    "size_range": "3.00 - 6.00",
     "total_area": 10264.0,
-    "coords": null,
+    "coords": [
+      10.953993,
+      76.802513
+    ],
     "images": [],
     "plans": [
       "Layout_Images/DRD Kandha/DRD Kanda Enclave.pdf"
@@ -81,6 +88,7 @@ const LAYOUT_DATA = [
     "plots_count": 5,
     "available_count": 5,
     "price_range": "34.3L - 40.3L",
+    "size_range": "2.50 - 4.00",
     "total_area": 8020.0,
     "coords": [
       10.9552917,
@@ -104,6 +112,7 @@ const LAYOUT_DATA = [
     "plots_count": 9,
     "available_count": 9,
     "price_range": "42.7L - 76.5L",
+    "size_range": "3.50 - 7.00",
     "total_area": 16789.0,
     "coords": [
       10.9620978,
@@ -127,6 +136,7 @@ const LAYOUT_DATA = [
     "plots_count": 51,
     "available_count": 51,
     "price_range": "34.4L - 63.4L",
+    "size_range": "2.99 - 10.00",
     "total_area": 82299.0,
     "coords": [
       10.9632537,
@@ -151,6 +161,7 @@ const LAYOUT_DATA = [
     "plots_count": 0,
     "available_count": 0,
     "price_range": "Contact for Price",
+    "size_range": "Call for Size",
     "total_area": 0,
     "coords": [
       10.9671909,
@@ -176,6 +187,7 @@ const LAYOUT_DATA = [
     "plots_count": 0,
     "available_count": 0,
     "price_range": "Contact for Price",
+    "size_range": "Call for Size",
     "total_area": 0,
     "coords": null,
     "images": [
@@ -192,12 +204,16 @@ const LAYOUT_DATA = [
     "videos": []
   },
   {
-    "name": "DRD Vairavan",
+    "name": "DRD Vairavan Garden",
     "plots_count": 0,
     "available_count": 0,
     "price_range": "Contact for Price",
+    "size_range": "Call for Size",
     "total_area": 0,
-    "coords": null,
+    "coords": [
+      10.954430,
+      76.802477
+    ],
     "images": [],
     "plans": [
       "Layout_Images/DRD Vairavan/DRD Vairavan Garden Brochure..pdf",
@@ -206,10 +222,32 @@ const LAYOUT_DATA = [
     "videos": []
   },
   {
+    "name": "DRD Realtors Office (Selvam Square)",
+    "plots_count": 0,
+    "available_count": 0,
+    "price_range": "Head Office",
+    "size_range": "Corporate HQ",
+    "total_area": 0,
+    "coords": [
+      10.9679375,
+      76.8491875
+    ],
+    "images": [
+      "Layout_Images/DRD Realtors/Selvam_square.webp",
+      "Layout_Images/DRD Realtors/Selvam Squar.webp",
+      "Layout_Images/DRD Realtors/Selvam1.jpeg",
+      "Layout_Images/DRD Realtors/Selvam2.jpeg",
+      "Layout_Images/DRD Realtors/office.jpeg"
+    ],
+    "plans": [],
+    "videos": []
+  },
+  {
     "name": "VIP Garden",
     "plots_count": 0,
     "available_count": 0,
     "price_range": "Contact for Price",
+    "size_range": "Call for Size",
     "total_area": 0,
     "coords": [
       10.9632991,

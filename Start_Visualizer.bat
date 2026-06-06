@@ -1,10 +1,13 @@
 @echo off
-set PORT=8000
 echo Starting DRD Layout Visualizer...
+echo Checking for dependencies...
+if not exist node_modules (
+    echo Installing dependencies...
+    call npm install
+)
 echo.
-echo Opening browser at http://localhost:%PORT%
-echo Press Ctrl+C in this window to stop the server.
+echo Running server on http://localhost:3001
+echo Admin Dashboard: http://localhost:3001/admin.html
 echo.
-
-start http://localhost:%PORT%
-python -m http.server %PORT%
+npm start
+pause
