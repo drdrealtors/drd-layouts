@@ -189,7 +189,7 @@ const LAYOUT_DATA = [
     "price_range": "Contact for Price",
     "size_range": "Call for Size",
     "total_area": 0,
-    "coords": null,
+    "coords": [10.9738208, 76.8686165],
     "images": [
       "Layout_Images/DRD Sendhur/Sendhur 1.jpeg",
       "Layout_Images/DRD Sendhur/Sendhur 2.jpeg",
